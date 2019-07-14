@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>RECIPE GENERATOR</title>
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper" class="background">
+
+			<!-- header -->
+			<header>
+
+			</header>
+			<!-- /header -->
+
+			<!-- main -->
+			<main>
+				<div id="mainTitle">
+					<h1 id="topTitle">RECIPE GENERATOR</h1>
+				</div>
+				<div id="mainCaption">
+					<p>9000件のレシピから1週間分の献立表を作ります</p>
+				</div>
+
+				<form id="orderRecipe" action="generate.php" method="post">
+					<div id="inputMoney">
+						<label for="moneyBox">¥</label>
+						<input id="moneyBox" type="text" name="money" maxlength="100" placeholder="予算を入力してください"/>
+						<input type="submit" value="作成" />
+					</div>
+
+					<p id="optionLinkBox"><span id="optionLink">詳細条件をつける</span></p>
+
+					<div id="optionBox">
+						<label>期間：</label>
+						<select class="optSelect" name="term" value="7">
+							<option value="1" >1日</option>
+							<option value="2">2日</option>
+							<option value="3">3日</option>
+							<option value="4">4日</option>
+							<option value="5">5日</option>
+							<option value="6">6日</option>
+							<option value="7" selected="selected">1週間</option>
+							<option value="14">2週間</option>
+							<option value="21">3週間</option>
+							<option value="30">1か月</option>
+						</select>
+						<br />
+						<label>いつ：</label>
+						<input class="optCheck" type="checkbox" name="category[]" value="501" checked="checked" />朝
+						<input class="optCheck" type="checkbox" name="category[]" value="502" checked="checked" />昼
+						<input class="optCheck" type="checkbox" name="category[]" value="503" checked="checked" />夜
+						<br />
+						<label>品数：</label>
+						<input class="optRadio" type="radio" name="meal" value="1" />1品
+						<input class="optRadio" type="radio" name="meal" value="2" />2品
+						<input class="optRadio" type="radio" name="meal" value="3" checked="checked" />3品
+						<br />
+						<label>人数：</label>
+						<select class="optSelect" name="people" value="1">
+							<option value="1" selected="selected">1人</option>
+							<option value="2">2人</option>
+							<option value="3">3人</option>
+							<option value="4">4人</option>
+							<option value="5">5人</option>
+							<option value="6">6人</option>
+							<option value="7">7人</option>
+							<option value="8">8人</option>
+							<option value="9">9人</option>
+							<option value="10">10人</option>
+						</select>
+						<br />
+						<input type="reset" value="条件をリセット" />
+					</div>
+				</form>
+
+			</main>
+			<!-- /main -->
+
+			<!-- footer -->
+			<footer>
+
+			</footer>
+			<!-- /footer -->
+
+			<!-- Javascript -->
+			<script type="text/javascript">
+			//<![CDATA[
+				$(function(){
+
+					$('#optionLink').click(function(){
+						$('#optionBox').stop().fadeToggle(200);
+					});
+
+				});
+			//]]>
+			</script>
+			<!-- /Javascript -->
+		</div>
+	</body>
+</html>
